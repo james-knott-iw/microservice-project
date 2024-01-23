@@ -3,10 +3,9 @@ package works.integration.microservice.service;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
-
-import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import works.integration.microservice.entity.Person;
+import works.integration.microservice.exception.EntityNotFoundException;
 import works.integration.microservice.repository.PersonRepository;
 
 @Service
@@ -42,8 +41,8 @@ public class PersonServiceImpl implements PersonService {
         if (entity.isPresent()) {
             return entity.get();
         } else {
-            // TODO
-            throw new EntityNotFoundException();
+
+            throw new EntityNotFoundException(id, Person.class);
         }
     }
 
