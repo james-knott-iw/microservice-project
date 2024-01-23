@@ -45,4 +45,10 @@ public class Person {
     @Schema(description = "The Person's age")
     private int age;
 
+    @NotBlank(message = "Sex cannot be blank")
+    @NonNull
+    @Column(nullable = false)
+    @Schema(description = "The Person's sex")
+    private String sex;
+
 }
