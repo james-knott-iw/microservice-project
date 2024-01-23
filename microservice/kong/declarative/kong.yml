@@ -2,12 +2,10 @@ _format_version: "3.0"
 _transform: true
 
 services:
-- host: httpbin.org
-  name: example_service
-  port: 80
-  protocol: http
+- name: person_service
+  url: http://app:8080/person
   routes:
-  - name: example_route
+  - name: person_route
     paths:
-    - /mock
+    - /person
     strip_path: true

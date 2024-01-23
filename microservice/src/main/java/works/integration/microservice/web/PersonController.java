@@ -17,10 +17,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Tag(name = "MicroserviceController", description = "Create, retrieve, update and delete TODO")
 @RestController
 @AllArgsConstructor
+@RequestMapping("/person")
 public class PersonController {
 
     PersonService personService;
