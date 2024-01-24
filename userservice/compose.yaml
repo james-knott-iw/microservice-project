@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    image: 'microservice:latest'
+    image: 'user-service:latest'
     build:
       context: .
     depends_on:

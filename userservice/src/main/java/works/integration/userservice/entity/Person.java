@@ -1,4 +1,4 @@
-package works.integration.microservice.entity;
+package works.integration.userservice.entity;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.media.Schema.AccessMode;

@@ -1,4 +1,4 @@
-# Microservice Project (Build Something Useful)
+# User Service Project (Build Something Useful)
 
 This repository contains the code for a Spring Boot API, a Dockerfile to containerise the API and a Docker Compose file to orchestrate the Kong gateway, API and PostgresSQL database images.
 
@@ -17,34 +17,34 @@ This can be done by HTTPS, SSH or GitHubCLI.
 ### HTTPS
 
 ```bash
-git clone https://github.com/james-knott-iw/microservice-project.git
+git clone https://github.com/james-knott-iw/user-service-project.git
 ```
 
 ### SSH
 
 ```bash
-git clone git@github.com:james-knott-iw/microservice-project.git
+git clone git@github.com:james-knott-iw/user-service-project.git
 ```
 
 ### GitHubCLI
 
 ```bash
-gh repo clone james-knott-iw/microservice-project
+gh repo clone james-knott-iw/user-service-project
 ```
 
-Open the `/microservice-project` directory in a terminal or IDE.
+Open the `/user-service` directory in a terminal or IDE.
 
-## Microservice
+## User-service
 
-To begin, enter the [/microservice](/microservice) directory:
+To begin, enter the [/userservice](/userservice) directory:
 
 ```bash
-cd microservice
+cd user-service
 ```
 
 ### Package Spring Boot API into JAR file
 
-The next step is to package the spring boot application into a `.jar` file which will be located at `/target/microservice-0.0.1-SNAPSHOT.jar`:
+The next step is to package the spring boot application into a `.jar` file which will be located at `/target/userservice-0.0.1.jar`:
 
 ```bash
 mvn clean package -DskipTests
@@ -52,14 +52,14 @@ mvn clean package -DskipTests
 
 ### Docker Compose File
 
-In this project we need 3 applications running in 3 separate containers. Our Spring Boot API, the Postgres Database and pgAdmin dashboard. A Docker compose file helps to define multiple containers at once. There is one located in [compose.yaml](/microservice/compose.yaml). Each container is defined as a `service`.
+In this project we need 3 applications running in 3 separate containers. Our Spring Boot API, the Postgres Database and pgAdmin dashboard. A Docker compose file helps to define multiple containers at once. There is one located in [compose.yaml](/userservi/compose.yaml). Each container is defined as a `service`.
 
 #### App
 
 The first service defined is `app`. This service runs our Spring Boot API container.
 
-- The service is based off an image called `microservice:latest`.
-- The build context specifies that the image will be built using a Dockerfile within the same directory i.e. `/microservice`. This Dockerfile will build the `microservice:latest` image.
+- The service is based off an image called `user-service:latest`.
+- The build context specifies that the image will be built using a Dockerfile within the same directory i.e. `/userservice`. This Dockerfile will build the `user-service:latest` image.
 - The `app` service `depends_on` the [db](#db) service. Therefore, the `app` service will start after the [db](#db) service service starts.
 - There are three environment variables to set. `SPRING_DATASOURCE_URL` specifies the database URL so Spring knows where to connect to. `SPRING_DATA_SOURCE_USERNAME` and `SPRING_DATASOURCE_PASSWORD` specify the credentials used to log into the database.
 - Port `8080` on the container is exposed but only within the default network `kong-net`. This means outside of the Docker network the API is not accessible through port `8080`.
@@ -104,11 +104,11 @@ The fourth service defined is `kong`. This service runs our Kong gateway contain
 
 #### kong-net
 
-This network is set as the default Docker network. As this is the default network, all containers defined in [compose.yaml](/microservice/compose.yaml) will be on this Docker network and thus, will be able to communicate with each other.
+This network is set as the default Docker network. As this is the default network, all containers defined in [compose.yaml](/userservi/compose.yaml) will be on this Docker network and thus, will be able to communicate with each other.
 
 ## Running the Containers
 
-To run the containers defined in [compose.yaml](/microservice/compose.yaml):
+To run the containers defined in [compose.yaml](/userservi/compose.yaml):
 
 ```bash
 docker-compose up -d
@@ -143,7 +143,7 @@ Now if you look at `Databases`, you will see `compose-postgres` this is the Post
 
 ## Import Mock Data
 
-Before we can test the API and Kong gateway we need to populate the Postgres database with data. The data we will use is located in [MOCK_DATA.csv](/microservice/MOCK_DATA.csv).
+Before we can test the API and Kong gateway we need to populate the Postgres database with data. The data we will use is located in [MOCK_DATA.csv](/userservi/MOCK_DATA.csv).
 
 - After setting up pgAdmin, as described in [Access the pgAdmin Dashboard](#access-the-pgadmin-dashboard), right click the `person` table and select `Import/Export Data`
 - Navigate to the `Options` tab and turn on `Headers`.
@@ -157,4 +157,4 @@ Before we can test the API and Kong gateway we need to populate the Postgres dat
 
 ## Testing the Spring Boot API and Kong Gateway
 
-- To test the microservice, import the Postman requests JSON file [Microservice MVP.postman_collection.json](/microservice/Microservice%20MVP.postman_collection.json). This Postman Collection contains requests to read Person Entities.
+- To test the userservicece, import the Postman requests JSON file [UserService.postman_collection.json](/userservice/UserService.postman_collection.json). This Postman Collection contains requests to read Person Entities.

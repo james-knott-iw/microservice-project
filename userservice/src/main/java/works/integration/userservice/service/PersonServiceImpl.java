@@ -1,12 +1,12 @@
-package works.integration.microservice.service;
+package works.integration.userservice.service;
 
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import lombok.AllArgsConstructor;
-import works.integration.microservice.entity.Person;
-import works.integration.microservice.exception.EntityNotFoundException;
-import works.integration.microservice.repository.PersonRepository;
+import works.integration.userservice.entity.Person;
+import works.integration.userservice.exception.EntityNotFoundException;
+import works.integration.userservice.repository.PersonRepository;
 
 @Service
 @AllArgsConstructor

@@ -1,4 +1,4 @@
-package works.integration.microservice.web;
+package works.integration.userservice.web;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,8 +9,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import works.integration.microservice.entity.Person;
-import works.integration.microservice.service.PersonService;
+import works.integration.userservice.entity.Person;
+import works.integration.userservice.service.PersonService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Tag(name = "MicroserviceController", description = "Create, retrieve, update and delete TODO")
+@Tag(name = "User-serviceController", description = "Create, retrieve, update and delete TODO")
 @RestController
 @AllArgsConstructor
 @RequestMapping("/person")

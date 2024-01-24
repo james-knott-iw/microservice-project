@@ -1,6 +1,6 @@
-package works.integration.microservice.service;
+package works.integration.userservice.service;
 
-import works.integration.microservice.entity.Person;
+import works.integration.userservice.entity.Person;
 
 public interface PersonService {
 
