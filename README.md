@@ -17,19 +17,19 @@ This can be done by HTTPS, SSH or GitHubCLI.
 ### HTTPS
 
 ```bash
-git clone https://github.com/james-knott-iw/user-service-project.git
+git clone https://github.com/james-knott-iw/user-service.git
 ```
 
 ### SSH
 
 ```bash
-git clone git@github.com:james-knott-iw/user-service-project.git
+git clone git@github.com:james-knott-iw/user-service.git
 ```
 
 ### GitHubCLI
 
 ```bash
-gh repo clone james-knott-iw/user-service-project
+gh repo clone james-knott-iw/user-service
 ```
 
 Open the `/user-service` directory in a terminal or IDE.
