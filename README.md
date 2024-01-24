@@ -52,14 +52,14 @@ mvn clean package -DskipTests
 
 ### Docker Compose File
 
-In this project we need 3 applications running in 3 separate containers. Our Spring Boot API, the Postgres Database and pgAdmin dashboard. A Docker compose file helps to define multiple containers at once. There is one located in [/demo-api/compose.yaml](/demo-api/compose.yaml). Each container is defined as a `service`.
+In this project we need 3 applications running in 3 separate containers. Our Spring Boot API, the Postgres Database and pgAdmin dashboard. A Docker compose file helps to define multiple containers at once. There is one located in [compose.yaml](/microservice/compose.yaml). Each container is defined as a `service`.
 
 #### App
 
 The first service defined is `app`. This service runs our Spring Boot API container.
 
 - The service is based off an image called `microservice:latest`.
-- The build context specifies that the image will be built using a Dockerfile within the same directory i.e. `/demo-api`. This Dockerfile will build the `microservice:latest` image.
+- The build context specifies that the image will be built using a Dockerfile within the same directory i.e. `/microservice`. This Dockerfile will build the `microservice:latest` image.
 - The `app` service `depends_on` the [db](#db) service. Therefore, the `app` service will start after the [db](#db) service service starts.
 - There are three environment variables to set. `SPRING_DATASOURCE_URL` specifies the database URL so Spring knows where to connect to. `SPRING_DATA_SOURCE_USERNAME` and `SPRING_DATASOURCE_PASSWORD` specify the credentials used to log into the database.
 - Port `8080` on the host machine (your local machine) is mapped to port `8080` on the container. The Spring Boot application hosts the server on port `8080` on the container and this allows you to access it through port `8080` on your machine.
@@ -155,4 +155,4 @@ Before we can test the API and Kong gateway we need to populate the Postgres dat
 
 ## Testing the Spring Boot API and Kong Gateway
 
-- To test the Demo API, import the Postman requests JSON file [Microservice MVP.postman_collection.json](/microservice/Microservice%20MVP.postman_collection.json). This Postman Collection contains requests to read Person Entities.
+- To test the microservice, import the Postman requests JSON file [Microservice MVP.postman_collection.json](/microservice/Microservice%20MVP.postman_collection.json). This Postman Collection contains requests to read Person Entities.
