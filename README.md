@@ -139,12 +139,19 @@ Once successfully logged in, you will be brought to the dashboard home page. To 
 - `Password` is the `POSTGRES_PASSWORD` defined in the [db](#db) service.
 - Then click save and you should see the `db` server under `Servers` in the `Object Explorer`.
 
-Now if you look at `Databases`, you will see `compose-postgres` this is the Postgres database holding the `Person` and `Pet` tables for our Spring Boot API. Here you can explore the Postgres database and manage it using the admin UI.
+Now if you look at `Databases`, you will see `compose-postgres` this is the Postgres database holding the `Person` table for our Spring Boot API. Here you can explore the Postgres database and manage it using the admin UI.
 
 ## Import Mock Data
 
 Before we can test the API and Kong gateway we need to populate the Postgres database with data. The data we will use is located in [MOCK_DATA.csv](/microservice/MOCK_DATA.csv).
 
+- After setting up pgAdmin, as described in [Access the pgAdmin Dashboard](#access-the-pgadmin-dashboard), right click the `person` table and select `Import/Export Data`
+- Navigate to the `Options` tab and turn on `Headers`.
+- Navigate back to the General tab and select the `folder icon` in the `Filename` row.
+- This opens a new popup window - select the three dots and select `Upload`
+- This will spawn a new popup window and you can upload the `MOCK_DATA.csv`.
+- Close the `Upload` window and when you are back to the `General` tab select `OK` to import the mock data.
+
 ## Testing the Spring Boot API and Kong Gateway
 
-- To test the Demo API, import the Postman requests JSON file [Microservice MVP.postman_collection.json](/microservice/Microservice%20MVP.postman_collection.json). This Postman Collection contains requests to perform CRUD on Person and Pet Entities.
+- To test the Demo API, import the Postman requests JSON file [Microservice MVP.postman_collection.json](/microservice/Microservice%20MVP.postman_collection.json). This Postman Collection contains requests to read Person Entities.
