@@ -151,6 +151,7 @@ Before we can test the API and Kong gateway we need to populate the Postgres dat
 - This opens a new popup window - select the three dots and select `Upload`
 - This will spawn a new popup window and you can upload the `MOCK_DATA.csv`.
 - Close the `Upload` window and when you are back to the `General` tab select `OK` to import the mock data.
+- There should be a small popup in the bottom left corner of your browser window showing a successful import.
 
 ## Testing the Spring Boot API and Kong Gateway
 
