@@ -62,7 +62,7 @@ The first service defined is `app`. This service runs our Spring Boot API contai
 - The build context specifies that the image will be built using a Dockerfile within the same directory i.e. `/microservice`. This Dockerfile will build the `microservice:latest` image.
 - The `app` service `depends_on` the [db](#db) service. Therefore, the `app` service will start after the [db](#db) service service starts.
 - There are three environment variables to set. `SPRING_DATASOURCE_URL` specifies the database URL so Spring knows where to connect to. `SPRING_DATA_SOURCE_USERNAME` and `SPRING_DATASOURCE_PASSWORD` specify the credentials used to log into the database.
-- Port `8080` on the host machine (your local machine) is mapped to port `8080` on the container. The Spring Boot application hosts the server on port `8080` on the container and this allows you to access it through port `8080` on your machine.
+- Port `8080` on the container is exposed but only within the default network `kong-net`. This means outside of the Docker network the API is not accessible through port `8080`.
 
 #### DB
 
@@ -150,6 +150,8 @@ Before we can test the API and Kong gateway we need to populate the Postgres dat
 - Navigate back to the General tab and select the `folder icon` in the `Filename` row.
 - This opens a new popup window - select the three dots and select `Upload`
 - This will spawn a new popup window and you can upload the `MOCK_DATA.csv`.
+- Close the `Upload` window and then select the `folder icon` again.
+- Now you will see the `MOCK_DATA.csv`. Select it and 
 - Close the `Upload` window and when you are back to the `General` tab select `OK` to import the mock data.
 - There should be a small popup in the bottom left corner of your browser window showing a successful import.
 
