@@ -151,7 +151,7 @@ Before we can test the API and Kong gateway we need to populate the Postgres dat
 - This opens a new popup window - select the three dots and select `Upload`
 - This will spawn a new popup window and you can upload the `MOCK_DATA.csv`.
 - Close the `Upload` window and then select the `folder icon` again.
-- Now you will see the `MOCK_DATA.csv`. Select it and 
+- Now you will see the `MOCK_DATA.csv`. Select it and press `Select`.
 - Close the `Upload` window and when you are back to the `General` tab select `OK` to import the mock data.
 - There should be a small popup in the bottom left corner of your browser window showing a successful import.
 
