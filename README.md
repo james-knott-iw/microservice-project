@@ -141,10 +141,10 @@ Once successfully logged in, you will be brought to the dashboard home page. To 
 
 Now if you look at `Databases`, you will see `compose-postgres` this is the Postgres database holding the `Person` and `Pet` tables for our Spring Boot API. Here you can explore the Postgres database and manage it using the admin UI.
 
-### Import Mock Data
+## Import Mock Data
 
-Before we can test the API and Kong gateway we need to populate the postgres database with data. The data we will use is located in [MOCK_DATA.csv](/microservice/MOCK_DATA.csv).
+Before we can test the API and Kong gateway we need to populate the Postgres database with data. The data we will use is located in [MOCK_DATA.csv](/microservice/MOCK_DATA.csv).
 
-### Testing the Spring Boot API and Kong Gateway
+## Testing the Spring Boot API and Kong Gateway
 
 - To test the Demo API, import the Postman requests JSON file [Microservice MVP.postman_collection.json](/microservice/Microservice%20MVP.postman_collection.json). This Postman Collection contains requests to perform CRUD on Person and Pet Entities.
