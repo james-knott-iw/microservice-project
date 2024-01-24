@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,6 +41,7 @@ public class Person {
     @Schema(description = "The Person's last name")
     private String lastName;
 
+    @Min(value = 0, message = "Age cannot be negative")
     @NotBlank(message = "Age cannot be blank")
     @Column(nullable = false)
     @Schema(description = "The Person's age")
