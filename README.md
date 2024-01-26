@@ -52,7 +52,7 @@ mvn clean package -DskipTests
 
 ### Docker Compose File
 
-In this project we need 3 applications running in 3 separate containers. Our Spring Boot API, the Postgres Database and pgAdmin dashboard. A Docker compose file helps to define multiple containers at once. There is one located in [compose.yaml](/userservi/compose.yaml). Each container is defined as a `service`.
+In this project we need 3 applications running in 3 separate containers. Our Spring Boot API, the Postgres Database and pgAdmin dashboard. A Docker compose file helps to define multiple containers at once. There is one located in [compose.yaml](/userservice/compose.yaml). Each container is defined as a `service`.
 
 #### App
 
@@ -104,11 +104,11 @@ The fourth service defined is `kong`. This service runs our Kong gateway contain
 
 #### kong-net
 
-This network is set as the default Docker network. As this is the default network, all containers defined in [compose.yaml](/userservi/compose.yaml) will be on this Docker network and thus, will be able to communicate with each other.
+This network is set as the default Docker network. As this is the default network, all containers defined in [compose.yaml](/userservice/compose.yaml) will be on this Docker network and thus, will be able to communicate with each other.
 
 ## Running the Containers
 
-To run the containers defined in [compose.yaml](/userservi/compose.yaml):
+To run the containers defined in [compose.yaml](/userservice/compose.yaml):
 
 ```bash
 docker-compose up -d
@@ -143,7 +143,7 @@ Now if you look at `Databases`, you will see `compose-postgres` this is the Post
 
 ## Import Mock Data
 
-Before we can test the API and Kong gateway we need to populate the Postgres database with data. The data we will use is located in [MOCK_DATA.csv](/userservi/MOCK_DATA.csv).
+Before we can test the API and Kong gateway we need to populate the Postgres database with data. The data we will use is located in [MOCK_DATA.csv](/userservice/MOCK_DATA.csv).
 
 - After setting up pgAdmin, as described in [Access the pgAdmin Dashboard](#access-the-pgadmin-dashboard), right click the `person` table and select `Import/Export Data`
 - Navigate to the `Options` tab and turn on `Headers`.
